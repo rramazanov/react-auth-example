@@ -1,0 +1,27 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto auto;
+  width: 500px;
+  border: 1px solid #21262d;
+  background-color: #161b22;
+  border-radius: 6px;
+  overflow: hidden;
+
+  .block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    border-bottom: 1px solid #30363d;
+  }
+
+  .form {
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #0d1117;
+  }
+}

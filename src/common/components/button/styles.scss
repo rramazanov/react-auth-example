@@ -1,0 +1,28 @@
+.btn-default {
+  padding: 5px 16px;
+  background-color: #21262d;
+  border: 1px solid #32373e;
+  border-radius: 6px;
+  color: #41a6ff;
+  cursor: pointer;
+}
+
+.btn-default:hover {
+  background-color: #30363d;
+}
+
+.btn-main {
+  margin-top: 8px;
+  padding: 5px 16px;
+  line-height: 20px;
+  font-weight: bold;
+  background-color: #238636;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-main:hover {
+  background-color: #2ea043;
+}
