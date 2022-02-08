@@ -1,5 +1,6 @@
 import {useState} from 'react';
 
+import {Form} from '../../../common/components/form';
 import {Button} from '../../../common/components/button';
 import {history} from '../../../common/routing';
 import api from '../../../common/http';
@@ -22,31 +23,35 @@ export function AuthLogin({setError}) {
     setPasswordValue(value);
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     const body = {
       username: usernameValue,
       password: passwordValue
     }
-    api.post('/auth', body).then(data => {
+    api.post('/login', body).then(data => {
       const {success, message} = data;
-
+      console.log(success)
       if (!success) {
         setError(message)
       } else {
         history.push('/profile')
       }
-    });
+    }).catch(e => setError(e.message));
   }
 
   return (
     <>
-      <div className="form">
+      <Form onSubmit={handleSubmit}>
         <label className="label">
           <div className="label-text">Username</div>
           <input
             onChange={e => handleChangeUsername(e.currentTarget.value)}
             type="text"
             required={true}
+            minLength={3}
+            maxLength={16}
           />
         </label>
         <label className="label">
@@ -55,10 +60,12 @@ export function AuthLogin({setError}) {
             onChange={e => handleChangePassword(e.currentTarget.value)}
             type="text"
             required={true}
+            minLength={4}
+            maxLength={21}
           />
         </label>
-        <Button kind="main" onClick={handleSubmit}>Sign in</Button>
-      </div>
+        <Button kind="main" type="submit">Sign in</Button>
+      </Form>
       <div className="callout">
         <span>New to Website? </span>
         <span className="link" onClick={handleClick}>Create an account.</span>
