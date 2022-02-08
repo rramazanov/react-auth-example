@@ -8,7 +8,7 @@ const routes = [
     path: '/login',
     exact: true,
     roles: ['ANONYMOUS'],
-    component: React.lazy(() => import('../pages/login'))
+    component: React.lazy(() => import('../pages/auth'))
   },
   {
     path: '/profile',
@@ -20,7 +20,7 @@ const routes = [
     path: '/registration',
     exact: true,
     roles: ['ANONYMOUS'],
-    component: React.lazy(() => import('../pages/login'))
+    component: React.lazy(() => import('../pages/auth'))
   },
   {
     path: '/about',
@@ -29,7 +29,6 @@ const routes = [
     component: React.lazy(() => import('../pages/about'))
   }
 ]
-
 
 function NotFound() {
   return <div style={{textAlign: 'center'}}>Page not found</div>
